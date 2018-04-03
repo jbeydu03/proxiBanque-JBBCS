@@ -1,0 +1,54 @@
+html {
+	background-color: #c0f5c5;
+}
+
+body {
+	background-color: #fff;
+	margin: 20px auto;
+	width: 600px;
+	margin: 10px auto;
+	padding: 30px;
+	border-radius: 20px;
+}
+
+.image {
+	text-align: center;
+}
+
+fieldset {
+	border-color: #008000;
+	border-style: solid;
+	border-radius: 20px;
+	width: 500px;
+	margin: auto;
+}
+
+input {
+	border-radius: 20px;
+}
+
+.connexion {
+	float: left;
+	margin: 0px 75px 0px 20px;
+}
+
+.case1, .case2 {
+	width: 250px;
+}
+
+.case3, .case4 {
+	width: 100px;
+}
+
+.case3:hover {
+	background-color: #008000;
+	color: #FFF;
+}
+
+.case4:hover {
+	background-color: #c10000;
+	color: #FFF;
+}
+h2, .pagelogin{
+	text-align: center;
+}

@@ -11,6 +11,10 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
+	public Personne() {
+
+	}
+
 	public String getNom() {
 		return nom;
 	}

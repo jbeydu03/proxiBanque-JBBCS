@@ -7,26 +7,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DaoJDBC {
-	private static String url = "jdbc:mysql://localhost/formation";
+	private static String url = "jdbc:mysql://localhost/proxibanquev2-JBBCS";
 	private static String login = "root";
 	private static String password = "";
 
 	public Connection seConnecter() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection cn = DriverManager.getConnection(url, login, password);
-		return cn;
+		Connection cnx = DriverManager.getConnection(url, login, password);
+		return cnx;
 	}
 
-	public void seDeconnecter(Connection cn, PreparedStatement st, ResultSet rs) {
+	public void seDeconnecter(Connection cnx, PreparedStatement pstmt, ResultSet rs) {
 		try {
-			if (cn != null)
-				cn.close();
+			if (cnx != null)
+				cnx.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
-			if (st != null)
-				st.close();
+			if (pstmt != null)
+				pstmt.close();
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -42,4 +42,3 @@ public class DaoJDBC {
 	}
 
 }
-
