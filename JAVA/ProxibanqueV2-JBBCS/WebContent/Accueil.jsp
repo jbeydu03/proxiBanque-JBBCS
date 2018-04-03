@@ -4,11 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Accueil</title>
 </head>
 <body>
-	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom}, ${conseiller.login}</h1>
-	
-	
+	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom},
+		${conseiller.login}</h1>
+
+	<form action="DeconnexionConseiller">
+		<input type="submit" value="déconnexion">
+	</form>
+
+	<a href="CreationClient.jsp">Création client</a> Modifier client
+	Chercher client Supprimer client Lire tous les clients
+
+
 </body>
 </html>

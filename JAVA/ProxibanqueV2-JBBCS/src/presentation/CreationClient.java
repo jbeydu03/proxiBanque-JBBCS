@@ -8,19 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import domaine.Client;
+import domaine.Conseiller;
 
 /**
- * Servlet implementation class DeconnexionConseiller
+ * Servlet implementation class CreationClient
  */
-@WebServlet("/DeconnexionConseiller")
-public class DeconnexionConseiller extends HttpServlet {
+@WebServlet("/CreationClient")
+public class CreationClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeconnexionConseiller() {
+	public CreationClient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,12 +34,7 @@ public class DeconnexionConseiller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(false);
-		session.invalidate();
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Logout.jsp");
-		dispatcher.forward(request, response);
-
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -47,7 +44,21 @@ public class DeconnexionConseiller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String adresse = request.getParameter("adresse");
+		int codePostal = Integer.parseInt(request.getParameter("codePostal"));
+		String ville = request.getParameter("ville");
+		String telephone = request.getParameter("telephone");
+
+		Conseiller conseiller = new Conseiller(1, "Szymezak", "Clothilde");
+
+		Client client = new Client(nom, prenom, adresse, ville, codePostal, telephone, conseiller);
+		request.setAttribute("client", client);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/CreationCompte.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }

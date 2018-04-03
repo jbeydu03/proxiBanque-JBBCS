@@ -18,6 +18,14 @@ public class Client extends Personne {
 		this.telephone = telephone;
 	}
 
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, String telephone) {
+		super(nom, prenom);
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.telephone = telephone;
+	}
+
 	public int getIdClient() {
 		return idClient;
 	}
