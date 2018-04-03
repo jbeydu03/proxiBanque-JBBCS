@@ -53,9 +53,9 @@ public class CreationClient extends HttpServlet {
 
 		Conseiller conseiller = new Conseiller(1, "Szymezak", "Clothilde");
 
-		Client client = new Client(nom, prenom, adresse, ville, codePostal, telephone, conseiller);
+		Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone, conseiller);
 		request.setAttribute("client", client);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/CreationCompte.jsp");
 		dispatcher.forward(request, response);
 

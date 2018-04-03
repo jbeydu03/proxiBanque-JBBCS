@@ -9,7 +9,7 @@ public class Client extends Personne {
 	private String telephone;
 	private Conseiller conseiller;
 
-	public Client(int idClient, String nom, String prenom, String adresse, String ville, int codePostal,
+	public Client(int idClient, String nom, String prenom, String adresse, int codePostal, String ville,
 			String telephone, Conseiller conseiller) {
 		super(nom, prenom);
 		this.idClient = idClient;
@@ -20,7 +20,7 @@ public class Client extends Personne {
 		this.conseiller = conseiller;
 	}
 
-	public Client(String nom, String prenom, String adresse, String ville, int codePostal, String telephone,
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, String telephone,
 			Conseiller conseiller) {
 		super(nom, prenom);
 		this.adresse = adresse;

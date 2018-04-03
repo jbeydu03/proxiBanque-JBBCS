@@ -20,7 +20,7 @@ public class Conseiller extends Personne {
 		this.login = login;
 		this.pwd = pwd;
 	}
-
+	
 	public Conseiller(int idConseiller, String nom, String prenom) {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
