@@ -2,23 +2,35 @@ package domaine;
 
 public class Client extends Personne {
 
-	private int idClient;
-	private String adresse;
-	private String ville;
-	private int codePostal;
-	private String telephone;
-	private Conseiller conseiller;
 
-	public Client(int idClient, String nom, String prenom, String adresse, String ville, int codePostal,
-			String telephone, Conseiller conseiller) {
-		super(nom, prenom);
-		this.idClient = idClient;
-		this.adresse = adresse;
-		this.ville = ville;
-		this.codePostal = codePostal;
-		this.telephone = telephone;
-		this.conseiller = conseiller;
-	}
+		private int idClient;
+		private String adresse;
+		private String ville;
+		private int codePostal;
+		private String telephone;
+		private Conseiller conseiller;
+
+		public Client(int idClient, String nom, String prenom, String adresse,  int codePostal, String ville,
+				String telephone, Conseiller conseiller) {
+			super(nom, prenom);
+			this.idClient = idClient;
+			this.adresse = adresse;
+			this.ville = ville;
+			this.codePostal = codePostal;
+			this.telephone = telephone;
+			this.conseiller = conseiller;
+		}
+		
+		
+		public Client(String nom, String prenom, String adresse,  int codePostal, String ville,
+				String telephone, Conseiller conseiller) {
+			super(nom, prenom);
+			this.adresse = adresse;
+			this.ville = ville;
+			this.codePostal = codePostal;
+			this.telephone = telephone;
+			this.conseiller = conseiller;
+		}
 
 	public int getIdClient() {
 		return idClient;
