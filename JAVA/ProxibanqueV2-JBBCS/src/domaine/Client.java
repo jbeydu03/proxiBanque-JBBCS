@@ -30,6 +30,29 @@ public class Client extends Personne {
 		this.conseiller = conseiller;
 	}
 
+	public Client(int idClient, String nom, String prenom, String adresse, int codePostal, String ville,
+			String telephone) {
+		super(nom, prenom);
+		this.idClient = idClient;
+		this.adresse = adresse;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.telephone = telephone;
+	}
+
+	public Client(String nom, String prenom, String adresse, int codePostal, String ville, String telephone) {
+		super(nom, prenom);
+		this.adresse = adresse;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.telephone = telephone;
+	}
+
+	public Client(int idClient) {
+		super();
+		this.idClient = idClient;
+	}
+
 	public int getIdClient() {
 		return idClient;
 	}

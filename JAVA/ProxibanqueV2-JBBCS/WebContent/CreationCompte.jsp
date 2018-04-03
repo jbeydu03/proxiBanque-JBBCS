@@ -9,6 +9,9 @@
 <body>
 	<fieldset>
 		<legend>Fiche Client</legend>
+		Nom : ${client.nom}<br /> Prénom : ${client.prenom}<br /> Adresse :
+		${client.adresse}<br /> Code Postal : ${client.codePostal}<br />
+		Ville : ${client.ville}<br /> Téléphone : ${client.telephone}<br />
 	</fieldset>
 	<form action="CreationCompte" method="post">
 		<fieldset>
@@ -33,6 +36,6 @@
 		</fieldset>
 	</form>
 
-
+	<a href="Accueil.jsp">Retour à l'accueil</a>
 </body>
 </html>

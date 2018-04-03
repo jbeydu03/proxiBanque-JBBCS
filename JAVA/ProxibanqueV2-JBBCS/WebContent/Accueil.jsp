@@ -14,8 +14,11 @@
 		<input type="submit" value="déconnexion">
 	</form>
 
-	<a href="CreationClient.jsp">Création client</a> Modifier client
-	Chercher client Supprimer client Lire tous les clients
+	<a href="CreationClient.jsp">Créer un nouveau client</a>
+	<br />
+	<a href="SelectAllClients">Gérer vos clients</a>
+
+
 
 
 </body>

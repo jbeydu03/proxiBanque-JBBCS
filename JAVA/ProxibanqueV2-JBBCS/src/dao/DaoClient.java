@@ -91,7 +91,7 @@ public class DaoClient extends DaoJDBC implements IDao {
 		ResultSet rs = null;
 
 		try {
-			String inserBdd = "update client set nom=?, prenom=?,adresse=?,codepostal=?,ville=?,telephone=?,idconseiller=? where idClient = ?";
+			String inserBdd = "update client set nom=?, prenom=?,adresse=?,codepostal=?,ville=?,telephone=? where idClient = ?";
 			cnx = seConnecter();
 			pstmt = cnx.prepareStatement(inserBdd);
 			pstmt.setString(1, client.getNom());
@@ -100,8 +100,7 @@ public class DaoClient extends DaoJDBC implements IDao {
 			pstmt.setInt(4, client.getCodePostal());
 			pstmt.setString(5, client.getVille());
 			pstmt.setString(6, client.getTelephone());
-			pstmt.setInt(7, client.getConseiller().getIdConseiller());
-			pstmt.setInt(8, client.getIdClient());
+			pstmt.setInt(7, client.getIdClient());
 
 			pstmt.execute();
 

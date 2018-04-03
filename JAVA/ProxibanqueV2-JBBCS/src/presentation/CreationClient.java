@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import domaine.Client;
 import domaine.Conseiller;
+import service.IServiceGestion;
+import service.OperationConseiller;
 
 /**
  * Servlet implementation class CreationClient
@@ -18,6 +20,7 @@ import domaine.Conseiller;
 @WebServlet("/CreationClient")
 public class CreationClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	IServiceGestion opeconseiller = new OperationConseiller();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -55,6 +58,8 @@ public class CreationClient extends HttpServlet {
 
 		Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone, conseiller);
 		request.setAttribute("client", client);
+
+		opeconseiller.creerClient(client);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/CreationCompte.jsp");
 		dispatcher.forward(request, response);

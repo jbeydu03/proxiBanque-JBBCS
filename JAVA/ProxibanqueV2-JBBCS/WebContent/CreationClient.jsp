@@ -7,7 +7,6 @@
 <title>Création client</title>
 </head>
 <body>
-
 	<form action="CreationClient" method="post">
 		<fieldset>
 			<legend>Création Client</legend>
