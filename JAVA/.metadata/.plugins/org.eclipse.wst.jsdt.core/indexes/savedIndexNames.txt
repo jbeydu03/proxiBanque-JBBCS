@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\adminl\Proxibanquev2-JBBCS\JAVA\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4086931198.index
+183438899.index
+1122218908.index
+1879226133.index
+2651431514.index
