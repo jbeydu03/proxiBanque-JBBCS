@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,20 +26,17 @@
 	<br />
 	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom},
 		${conseiller.login} !!</h1>
-	<p>Nous sommes le 
+	<p>
+		Nous sommes le <font color="red"><%=new Date()%></font><br /> <a
+			href="CreationClient.jsp">Créer un nouveau client</a> <br /> <a
+			href="SelectAllClients">Gérer vos clients</a>
 
+		<jsp:include page="Footer.jsp"></jsp:include>
 
-
-	<a href="CreationClient.jsp">Créer un nouveau client</a>
-	<br />
-	<a href="SelectAllClients">Gérer vos clients</a>
-
-	<jsp:include page="Footer.jsp"></jsp:include>
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
