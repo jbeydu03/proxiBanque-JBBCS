@@ -3,7 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.DaoClient;
+import dao.Dao;
 import domaine.Client;
 import domaine.Compte;
 
@@ -24,34 +24,34 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire 
 	@Override
 	public void creerClient(Client client) {
 	
-			DaoClient dCreerClients = new DaoClient();
+			Dao dCreerClients = new Dao();
 			dCreerClients.creerClient(client);
 		
 	}
 
 	@Override
 	public Client lireClient(int idClient) {
-		DaoClient dLireClient = new DaoClient();
+		Dao dLireClient = new Dao();
 		Client sClient = dLireClient.lireClient(1);
 		return sClient;
 	}
 
 	@Override
 	public void modifierClient(Client client) {
-		DaoClient dCreerClients = new DaoClient();
+		Dao dCreerClients = new Dao();
 		dCreerClients.modifierClient(client);
 
 	}
 
 	@Override
 	public void supprimerClient(Client client) {
-		DaoClient dSupprimerClient = new DaoClient();
+		Dao dSupprimerClient = new Dao();
 		dSupprimerClient.supprimerClient(client);
 	}
 
 	@Override
 	public List<Client> lireAllClients() {
-		DaoClient dLireAllClients = new DaoClient();
+		Dao dLireAllClients = new Dao();
 		List<Client> sLireAllClients = dLireAllClients.lireAllClients();
 		return sLireAllClients;
 	}

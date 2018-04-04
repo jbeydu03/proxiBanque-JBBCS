@@ -8,6 +8,15 @@ public class Conseiller extends Personne {
 	private List<Client> listeClients;
 	private String login;
 	private String pwd;
+	private Agence agence;
+
+	public Agence getAgence() {
+		return agence;
+	}
+
+	public void setAgence(Agence agence) {
+		this.agence = agence;
+	}
 
 	public Conseiller(int idConseiller, String nom, String prenom, List<Client> listeClients) {
 		super(nom, prenom);

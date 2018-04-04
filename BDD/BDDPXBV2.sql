@@ -28,6 +28,7 @@ CREATE TABLE Client(
         prenom       Varchar (20) NOT NULL ,
         adresse      Varchar (40) NOT NULL ,
         codepostal   Int NOT NULL ,
+		ville		 Varchar (20) NOT NULL ,
         telephone    Varchar (10) NOT NULL ,
         idconseiller Int NOT NULL ,
         PRIMARY KEY (idclient )
@@ -41,6 +42,7 @@ CREATE TABLE Client(
 CREATE TABLE Agence(
         idagence     Varchar (5) NOT NULL ,
         datecreation Date NOT NULL ,
+		`nomagence` varchar(30) NOT NULL,
         PRIMARY KEY (idagence )
 )ENGINE=InnoDB;
 

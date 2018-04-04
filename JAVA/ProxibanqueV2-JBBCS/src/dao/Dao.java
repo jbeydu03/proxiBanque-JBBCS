@@ -10,7 +10,7 @@ import java.util.List;
 import domaine.Client;
 import domaine.Conseiller;
 
-public class DaoClient extends DaoJDBC implements IDao {
+public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller {
 
 	@Override
 	public void creerClient(Client client) {
@@ -175,6 +175,57 @@ public class DaoClient extends DaoJDBC implements IDao {
 
 		return listResultClient;
 
+	}
+
+	@Override
+	public void creerConseiller(Conseiller conseiller) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String inserBdd = "insert into client (nom, prenom,login,mdp,iaAgence) Values(?,?,?,?,?)";
+			cnx = seConnecter();
+			pstmt = cnx.prepareStatement(inserBdd);
+			pstmt.setString(1, conseiller.getNom());
+			pstmt.setString(2, conseiller.getPrenom());
+			pstmt.setString(3, conseiller.getLogin());
+			pstmt.setString(4, conseiller.getPwd());
+			pstmt.setString(5, (String)conseiller.getAgence().getIdAgence());
+
+			pstmt.execute();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+		
+	}
+
+	@Override
+	public Conseiller lireConseiller(int idConseiller) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void modifierConseiller(Conseiller conseiller) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void supprimerConseiller(Conseiller conseiller) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Conseiller> lireAllConseillers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

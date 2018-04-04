@@ -5,7 +5,7 @@ import java.util.List;
 import domaine.Client;
 import domaine.Conseiller;
 
-public interface IDao {
+public interface IDaoClient {
 
 	
 	public void creerClient(Client client);
