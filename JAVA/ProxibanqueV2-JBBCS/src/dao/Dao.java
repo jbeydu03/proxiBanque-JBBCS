@@ -8,9 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import domaine.Client;
+import domaine.Compte;
+import domaine.CompteCourant;
+import domaine.CompteEpargne;
 import domaine.Conseiller;
 
-public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller {
+/**
+ * @author Clothide SZYMEZAK et JB BLANC Requetes liées à la base de donnée.
+ * 
+ *         Implémentation de IDaoClient pour CRUD client Implémentation de
+ *         IDaoConseiller pour CRUD conseiller Implémentation de IDaoConseiller
+ *         pour CRUD comptes (courant et epargne)
+ * 
+ *         Heritage de DaoJDBC pour connection à la BDD MySQL
+ *
+ */
+public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoCompte {
 
 	@Override
 	public void creerClient(Client client) {
@@ -191,7 +204,7 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller {
 			pstmt.setString(2, conseiller.getPrenom());
 			pstmt.setString(3, conseiller.getLogin());
 			pstmt.setString(4, conseiller.getPwd());
-			pstmt.setString(5, (String)conseiller.getAgence().getIdAgence());
+			pstmt.setString(5, (String) conseiller.getAgence().getIdAgence());
 
 			pstmt.execute();
 
@@ -201,29 +214,214 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller {
 		} finally {
 			seDeconnecter(cnx, pstmt, rs);
 		}
-		
+
 	}
 
 	@Override
 	public Conseiller lireConseiller(int idConseiller) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Conseiller resultConseiller = null;
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM conseiller WHERE idConseiller=?";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			pstmt.setInt(1, idConseiller);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rConseillerIdConseiller = rs.getInt("idconseiller");
+				String rConseillerNom = rs.getString("nom");
+				String rConseillerPrenom = rs.getString("prenom");
+				String rConseillerLogin = rs.getString("login");
+				String rConseillerPsw = rs.getString("mdp");
+				// TODO Modifier l'initialisation de l'agence
+				// String rConseillerVille = rs.getString("idagence");
+
+				resultConseiller = new Conseiller(rConseillerIdConseiller, rConseillerNom, rConseillerPrenom,
+						rConseillerLogin, rConseillerPsw);
+
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return resultConseiller;
+
 	}
 
 	@Override
 	public void modifierConseiller(Conseiller conseiller) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void supprimerConseiller(Conseiller conseiller) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public List<Conseiller> lireAllConseillers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// partie Compte
+
+	@Override
+	public void creerCompteCourant(CompteCourant compteCourant) {
+
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String inserBdd = "insert into comptecourant (numcompte, solde,dateouverture,decouvertautorise,cartevisa,idclient,) Values(?,?,?,?,?,?)";
+			cnx = seConnecter();
+			pstmt = cnx.prepareStatement(inserBdd);
+			pstmt.setInt(1, compteCourant.getNumCompte());
+			pstmt.setDouble(2, compteCourant.getSolde());
+			pstmt.setString(3, compteCourant.getDateOuverture());
+			pstmt.setDouble(4, compteCourant.getDecouvertAutorise());
+			pstmt.setString(5, compteCourant.getCarteVisa());
+			pstmt.setInt(6, compteCourant.getClient().getIdClient());
+
+			pstmt.execute();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+	}
+
+	@Override
+	public CompteCourant lireCompteCourant(int numCompte) {
+
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		CompteCourant resultCompteCourant = null;
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM comptecourant WHERE numcompte=?";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			pstmt.setInt(1, numCompte);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rCompteCourantNumCompte = rs.getInt("numcompte");
+				Double rCompteCourantSolde = rs.getDouble("solde");
+				String rCompteCourantDateouverture = rs.getString("dateouverture");
+				Double rCompteCourantDecouvertautorise = rs.getDouble("decouvertautorise");
+				String rCompteCourantCartevisa = rs.getString("cartevisa");
+
+				resultCompteCourant = new CompteCourant(rCompteCourantNumCompte, rCompteCourantSolde,
+						rCompteCourantDateouverture, rCompteCourantDecouvertautorise, rCompteCourantCartevisa);
+
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return resultCompteCourant;
+
+	}
+
+	@Override
+	public void modifierCompteCourant(CompteCourant compteCourant) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			cnx = seConnecter();
+			String updateBdd="update comptecourant set numcompte=?, solde=?,dateouverture=?,decouvertautorise=?,cartevisa=?,idclient=? where numcompte = ?";
+			cnx = seConnecter();
+			pstmt = cnx.prepareStatement(updateBdd);
+			pstmt.setInt(1, compteCourant.getNumCompte());
+			pstmt.setDouble(2, compteCourant.getSolde());
+			pstmt.setString(3, compteCourant.getDateOuverture());
+			pstmt.setDouble(4, compteCourant.getDecouvertAutorise());
+			pstmt.setString(5, compteCourant.getCarteVisa());
+			pstmt.setInt(6, compteCourant.getClient().getIdClient());
+
+			pstmt.execute();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+	}
+
+	@Override
+	public void supprimerCompteCourant(CompteCourant compteCourant) {
+
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String inserBdd = "delete from comptecourant where numcompte=?";
+			cnx = seConnecter();
+			pstmt = cnx.prepareStatement(inserBdd);
+			pstmt.setInt(1, compteCourant.getNumCompte());
+			pstmt.execute();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+	}
+
+	@Override
+	public void creerCompteEpargne(CompteEpargne compteEpargne) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public CompteEpargne lireCompteEpargne(int numCompte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void modifierCompteEpargne(CompteEpargne CompteEpargne) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void supprimerCompteEpargne(CompteEpargne CompteEpargne) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Compte> lireAllCompte() {
 		// TODO Auto-generated method stub
 		return null;
 	}

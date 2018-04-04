@@ -2,6 +2,11 @@ package domaine;
 
 import java.util.List;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Classe conseiller
+ *
+ */
 public class Conseiller extends Personne {
 
 	private int idConseiller;
@@ -10,14 +15,10 @@ public class Conseiller extends Personne {
 	private String pwd;
 	private Agence agence;
 
-	public Agence getAgence() {
-		return agence;
-	}
 
-	public void setAgence(Agence agence) {
-		this.agence = agence;
-	}
+	 //Constructeur
 
+	
 	public Conseiller(int idConseiller, String nom, String prenom, List<Client> listeClients) {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
@@ -34,6 +35,26 @@ public class Conseiller extends Personne {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
 	}
+	
+	public Conseiller(int idConseiller, String nom, String prenom, String login, String pwd) {
+		super(nom, prenom);
+		this.idConseiller = idConseiller;
+		this.login = login;
+		this.pwd = pwd;
+	}
+	
+
+	 //getters & setters
+	
+	
+	public Agence getAgence() {
+		return agence;
+	}
+
+	public void setAgence(Agence agence) {
+		this.agence = agence;
+	}
+
 
 	public int getIdConseiller() {
 		return idConseiller;
