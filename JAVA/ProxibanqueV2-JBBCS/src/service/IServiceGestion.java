@@ -21,6 +21,10 @@ public interface IServiceGestion {
 	public List<Client> lireAllClientsParConseiller(int idConseiller);
 
 	public void ajouterCompteCourant(CompteCourant courant, int idClient);
-	
+
+	public CompteCourant lireCompteCourant(int idClient);
+
 	public void ajouterCompteEpargne(CompteEpargne epargne, int idClient);
+
+	public CompteEpargne lireCompteEpargne(int idClient);
 }

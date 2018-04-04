@@ -12,11 +12,36 @@
 	<br />
 	<br />
 	<fieldset>
-		<legend>Fiche Client</legend>
+		<legend>Données personnelles</legend>
 		ID : ${client.idClient}<br /> Nom : ${client.nom}<br /> Prénom :
 		${client.prenom}<br /> Adresse : ${client.adresse}<br /> Code Postal
 		: ${client.codePostal}<br /> Ville : ${client.ville}<br /> Téléphone
 		: ${client.telephone}
+	</fieldset>
+	<br />
+	<fieldset>
+		<legend>Compte Courant</legend>
+		<%
+			if (("${comptecourant.numCompte}").isEmpty()) {
+		%><h1>AUCUN</h1>
+		<%
+			} else {
+		%>
+		N° compte : ${comptecourant.numCompte}<br /> Solde :
+		${comptecourant.solde} €<br /> Découvert autorisé :
+		${comptecourant.decouvertAutorise} €<br /> Carte Visa :
+		${comptecourant.carteVisa}<br /> Date D'ouverture :
+		${comptecourant.dateOuverture}<%
+			}
+		%>
+	</fieldset>
+	<br />
+	<fieldset>
+		<legend>Compte Epargne</legend>
+		N° compte : ${compteepargne.numCompte}<br /> Solde :
+		${compteepargne.solde} €<br /> Taux de rémunération :
+		${compteepargne.tauxRemuneration} %<br /> Date D'ouverture :
+		${compteepargne.dateOuverture}
 	</fieldset>
 	<br />
 	<a href="SelectAllClients">Retour au menu de gestion</a>

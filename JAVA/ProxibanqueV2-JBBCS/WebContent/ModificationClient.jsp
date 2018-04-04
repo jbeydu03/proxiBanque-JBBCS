@@ -22,9 +22,8 @@
 			<input type="text" name="ville" value="${client.ville}"><br />
 			<input type="text" name="telephone" value="${client.telephone}"><br />
 			<p />
-			<input type="submit" value="Modifier"> <input type="reset"
-				value="Effacer"><a href="Accueil.jsp"><input
-				type="button" value="Annuler"></a>
+			<input type="submit" value="Modifier"> <a
+				href="SelectAllClients"><input type="button" value="Annuler"></a>
 		</fieldset>
 	</form>
 	<jsp:include page="Footer.jsp"></jsp:include>

@@ -49,35 +49,31 @@ public class CreationCompte extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int idClient = Integer.parseInt(request.getParameter("idclient"));
 		if (request.getParameter("compteC") != null) {
 
 			double solde = Double.parseDouble(request.getParameter("soldecourant"));
 			String dateOuverture = new Date().toString();
 			double decouvertAutorise = Double.parseDouble(request.getParameter("decouvert"));
 			String carteVisa = request.getParameter("cartevisa");
-			Client client = new Client(3, "lala", "nom", "adresse", 45000, "ville", "telephone");
-			//int idClient = Integer.parseInt("idclient");
-			System.out.println(client.getIdClient());
+
 			CompteCourant courant = new CompteCourant(solde, dateOuverture, decouvertAutorise, carteVisa);
-			opeconseiller.ajouterCompteCourant(courant, client.getIdClient());
+			opeconseiller.ajouterCompteCourant(courant, idClient);
 		}
 		if (request.getParameter("compteE") != null) {
 
 			double solde = Double.parseDouble(request.getParameter("soldeepargne"));
 			String dateOuverture = new Date().toString();
 			double tauxRemuneration = Double.parseDouble(request.getParameter("tauxremuneration"));
-			Client client = new Client(3, "lala", "nom", "adresse", 45000, "ville", "telephone");
-			
-			
-			//int idClient = Integer.parseInt("idclient");
-			System.out.println(client.getIdClient());
-			CompteEpargne epargne = new CompteEpargne(solde,dateOuverture,tauxRemuneration);
-		
-			
-			opeconseiller.ajouterCompteEpargne(epargne, client.getIdClient());
-	
+
+			// Client client = new Client(3, "lala", "nom", "adresse", 45000, "ville",
+			// "telephone");
+
+			CompteEpargne epargne = new CompteEpargne(solde, dateOuverture, tauxRemuneration);
+			opeconseiller.ajouterCompteEpargne(epargne, idClient);
+
 		}
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("SelectAllClients");
 		dispatcher.forward(request, response);
 	}

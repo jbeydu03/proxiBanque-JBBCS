@@ -26,10 +26,10 @@
 	<br />
 	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom} !!</h1>
 	<p>
-		Nous sommes le
-		<%=new Date()%><br /> <a href="CreationClient.jsp">Créer un
-			nouveau client</a> <br /> <a href="SelectAllClients">Gérer vos
-			clients</a>
+		<br /> Nous sommes le
+		<%=new Date()%><br /> <br /> <br /> <a href="CreationClient.jsp">Créer
+			un nouveau client</a> <br />
+		<br /> <a href="SelectAllClients">Gérer vos clients</a>
 
 		<jsp:include page="Footer.jsp"></jsp:include>
 

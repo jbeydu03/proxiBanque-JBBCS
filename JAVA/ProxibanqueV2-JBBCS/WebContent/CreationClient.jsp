@@ -13,12 +13,13 @@
 	<form action="CreationClient" method="post">
 		<fieldset>
 			<legend>Création Client</legend>
-			<input type="text" name="nom" placeholder="Nom"><br /> <input
-				type="text" name="prenom" placeholder="Prénom"><br /> <input
-				type="text" name="adresse" placeholder="Adresse"><br /> <input
-				type="text" name="codePostal" placeholder="Code Postal"><br />
-			<input type="text" name="ville" placeholder="Ville"><br /> <input
-				type="text" name="telephone" placeholder="Téléphone"><br />
+			<input type="text" name="nom" placeholder="Nom" required><br />
+			<input type="text" name="prenom" placeholder="Prénom" required><br />
+			<input type="text" name="adresse" placeholder="Adresse" required><br />
+			<input type="text" name="codePostal" placeholder="Code Postal"
+				required><br /> <input type="text" name="ville"
+				placeholder="Ville" required><br /> <input type="text"
+				name="telephone" placeholder="Téléphone" required><br />
 			<p />
 			<input type="submit" value="Créer"> <input type="reset"
 				value="Effacer"> <a href="Accueil.jsp"><input

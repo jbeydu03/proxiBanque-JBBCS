@@ -80,10 +80,25 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire,
 	}
 
 	@Override
+	public CompteCourant lireCompteCourant(int idClient) {
+		Dao dLireCompteCourant = new Dao();
+		CompteCourant sCompteCourant = dLireCompteCourant.lireCompteCourant(idClient);
+		return sCompteCourant;
+
+	}
+
+	@Override
 	public void ajouterCompteEpargne(CompteEpargne epargne, int idClient) {
 		Dao dCreerCompteEpargne = new Dao();
 		dCreerCompteEpargne.creerCompteEpargne(epargne, idClient);
-		
+
+	}
+
+	@Override
+	public CompteEpargne lireCompteEpargne(int idClient) {
+		Dao dLireCompteEpargneCourant = new Dao();
+		CompteEpargne sCompteEpargne = dLireCompteEpargneCourant.lireCompteEpargne(idClient);
+		return sCompteEpargne;
 	}
 
 }

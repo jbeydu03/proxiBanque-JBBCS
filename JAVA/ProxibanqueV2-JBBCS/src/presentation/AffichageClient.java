@@ -38,6 +38,8 @@ public class AffichageClient extends HttpServlet {
 		int idClient = Integer.parseInt(request.getParameter("idclient"));
 
 		request.setAttribute("client", opeconseiller.lireClient(idClient));
+		request.setAttribute("comptecourant", opeconseiller.lireCompteCourant(idClient));
+		request.setAttribute("compteepargne", opeconseiller.lireCompteEpargne(idClient));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/AffichageClient.jsp");
 		dispatcher.forward(request, response);
 	}

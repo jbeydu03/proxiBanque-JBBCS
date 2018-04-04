@@ -9,23 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domaine.Client;
-import domaine.Conseiller;
 import service.IServiceGestion;
 import service.OperationConseiller;
 
 /**
- * Servlet implementation class CreationClient
+ * Servlet implementation class AjoutCompte
  */
-@WebServlet("/CreationClient")
-public class CreationClient extends HttpServlet {
+@WebServlet("/AjoutCompte")
+public class AjoutCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	IServiceGestion opeconseiller = new OperationConseiller();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CreationClient() {
+	public AjoutCompte() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +35,12 @@ public class CreationClient extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int idClient = Integer.parseInt(request.getParameter("idclient"));
+
+		request.setAttribute("client", opeconseiller.lireClient(idClient));
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/AjoutCompte.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -47,23 +50,7 @@ public class CreationClient extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String adresse = request.getParameter("adresse");
-		int codePostal = Integer.parseInt(request.getParameter("codePostal"));
-		String ville = request.getParameter("ville");
-		String telephone = request.getParameter("telephone");
-
-		Conseiller conseiller = new Conseiller(1, "Szymezak", "Clothilde");
-
-		Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone, conseiller);
-		request.setAttribute("client", client);
-
-		opeconseiller.creerClient(client);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/FicheClient.jsp");
-		dispatcher.forward(request, response);
-
+		doGet(request, response);
 	}
 
 }

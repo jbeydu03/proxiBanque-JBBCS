@@ -17,7 +17,7 @@ public interface IDaoCompte {
 
 	public void creerCompteCourant(CompteCourant compteCourant, int idClient);
 
-	public CompteCourant lireCompteCourant(int numCompte);
+	public CompteCourant lireCompteCourant(int idClient);
 
 	public void modifierCompteCourant(CompteCourant CompteCourant);
 
@@ -27,7 +27,7 @@ public interface IDaoCompte {
 
 	public void creerCompteEpargne(CompteEpargne compteEpargne, int idClient);
 
-	public CompteEpargne lireCompteEpargne(int numCompte);
+	public CompteEpargne lireCompteEpargne(int idClient);
 
 	public void modifierCompteEpargne(CompteEpargne CompteEpargne);
 

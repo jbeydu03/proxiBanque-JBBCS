@@ -15,26 +15,37 @@
 		<tr>
 			<th>ID</th>
 			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Adresse</th>
+			<th>Ville</th>
 			<th>Code Postal</th>
 			<th>Téléphone</th>
 			<th>Afficher</th>
 			<th>Modifier</th>
 			<th>Supprimer</th>
+			<th>AjoutCompte</th>
+			
 		</tr>
 		<c:forEach items="${listeclients}" var="client">
 			<tr>
 				<td><c:out value="${client.idClient}" /></td>
 				<td><c:out value="${client.nom}" /></td>
+				<td><c:out value="${client.prenom}" /></td>
+				<td><c:out value="${client.adresse}" /></td>
+				<td><c:out value="${client.ville}" /></td>
 				<td><c:out value="${client.codePostal}" /></td>
 				<td><c:out value="${client.telephone}" /></td>
 				<td><a href="AffichageClient?idclient=${client.idClient}">a</a></td>
 				<td><a
 					href="LienModificationClient?idclient=${client.idClient}">m</a></td>
 				<td><a href="SuppressionClient?idclient=${client.idClient}">x</a></td>
+				<td><a href="AjoutCompte?idclient=${client.idClient}">+</a></td>
 			</tr>
 
 		</c:forEach>
 	</table>
+	<br />
+	<br />
 	<a href="Accueil.jsp">Retour à l'accueil</a>
 	<jsp:include page="Footer.jsp"></jsp:include>
 

@@ -306,7 +306,7 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 	}
 
 	@Override
-	public CompteCourant lireCompteCourant(int numCompte) {
+	public CompteCourant lireCompteCourant(int idClient) {
 
 		Connection cnx = null;
 		PreparedStatement pstmt = null;
@@ -315,9 +315,9 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 
 		try {
 			cnx = seConnecter();
-			String rechercheBdd = "SELECT * FROM comptecourant WHERE numcompte=?";
+			String rechercheBdd = "SELECT * FROM comptecourant WHERE idclient=?";
 			pstmt = cnx.prepareStatement(rechercheBdd);
-			pstmt.setInt(1, numCompte);
+			pstmt.setInt(1, idClient);
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -421,9 +421,40 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 	}
 
 	@Override
-	public CompteEpargne lireCompteEpargne(int numCompte) {
-		// TODO Auto-generated method stub
-		return null;
+	public CompteEpargne lireCompteEpargne(int idClient) {
+
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		CompteEpargne resultCompteEpargne = null;
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM compteepargne WHERE idclient=?";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			pstmt.setInt(1, idClient);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rCompteEpargneNumCompte = rs.getInt("numcompte");
+				Double rCompteEpargneSolde = rs.getDouble("solde");
+				String rCompteEpargneDateouverture = rs.getString("dateouverture");
+				Double rCompteEpargneTauxRemuneration = rs.getDouble("tauxremuneration");
+
+				resultCompteEpargne = new CompteEpargne(rCompteEpargneNumCompte, rCompteEpargneSolde,
+						rCompteEpargneDateouverture, rCompteEpargneTauxRemuneration);
+
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return resultCompteEpargne;
+
 	}
 
 	@Override
