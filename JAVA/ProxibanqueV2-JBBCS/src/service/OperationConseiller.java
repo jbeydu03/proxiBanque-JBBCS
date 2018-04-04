@@ -6,8 +6,9 @@ import java.util.List;
 import dao.Dao;
 import domaine.Client;
 import domaine.Compte;
+import domaine.Conseiller;
 
-public class OperationConseiller implements IServiceGestion, IOperationBancaire {
+public class OperationConseiller implements IServiceGestion, IOperationBancaire, IConnexion {
 
 	@Override
 	public void effectuerVirement(Compte compteCrediteur, Compte compteDebiteur, double montant) {
@@ -54,6 +55,13 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire 
 		Dao dLireAllClients = new Dao();
 		List<Client> sLireAllClients = dLireAllClients.lireAllClients();
 		return sLireAllClients;
+	}
+
+	@Override
+	public Conseiller connexionConseiller(String login) {
+		Dao dConnexionConseiller = new Dao();
+		Conseiller sConnexion = dConnexionConseiller.lireConseillerParLogin(login);
+		return sConnexion;
 	}
 
 }

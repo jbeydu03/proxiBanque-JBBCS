@@ -426,4 +426,40 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 		return null;
 	}
 
+	@Override
+	public Conseiller lireConseillerParLogin(String login) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Conseiller resultConseiller = null;
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM conseiller WHERE login=?";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			pstmt.setString(1, login);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rConseillerIdConseiller = rs.getInt("idconseiller");
+				String rConseillerNom = rs.getString("nom");
+				String rConseillerPrenom = rs.getString("prenom");
+				String rConseillerLogin = rs.getString("login");
+				String rConseillerPsw = rs.getString("mdp");
+
+				resultConseiller = new Conseiller(rConseillerIdConseiller, rConseillerNom, rConseillerPrenom,
+						rConseillerLogin, rConseillerPsw);
+
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return resultConseiller;
+	}
+
 }
