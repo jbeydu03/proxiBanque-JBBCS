@@ -8,6 +8,9 @@
 <title>Affichage Client</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp"></jsp:include>
+	<br />
+	<br />
 	<fieldset>
 		<legend>Fiche Client</legend>
 		ID : ${client.idClient}<br /> Nom : ${client.nom}<br /> Prénom :
@@ -15,7 +18,9 @@
 		: ${client.codePostal}<br /> Ville : ${client.ville}<br /> Téléphone
 		: ${client.telephone}
 	</fieldset>
+	<br />
+	<a href="SelectAllClients">Retour au menu de gestion</a>
 
-	<a href="Accueil.jsp">Retour à l'accueil</a>
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

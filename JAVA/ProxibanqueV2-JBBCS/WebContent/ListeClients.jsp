@@ -8,6 +8,9 @@
 <title>Liste des clients</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp"></jsp:include>
+	<br />
+	<br />
 	<table>
 		<tr>
 			<th>ID</th>
@@ -27,11 +30,13 @@
 				<td><a href="AffichageClient?idclient=${client.idClient}">a</a></td>
 				<td><a
 					href="LienModificationClient?idclient=${client.idClient}">m</a></td>
-				<td><a href="LienSuppressionClient?idclient=${client.idClient}">x</a></td>
+				<td><a href="SuppressionClient?idclient=${client.idClient}">x</a></td>
 			</tr>
 
 		</c:forEach>
 	</table>
 	<a href="Accueil.jsp">Retour à l'accueil</a>
+	<jsp:include page="Footer.jsp"></jsp:include>
+
 </body>
 </html>

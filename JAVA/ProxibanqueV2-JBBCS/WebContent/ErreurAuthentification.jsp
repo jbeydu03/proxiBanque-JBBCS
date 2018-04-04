@@ -7,6 +7,9 @@
 <title>Erreur authentification</title>
 </head>
 <body>
+
+	<img src="Logo.png" />
+
 	<h1>ECHEC D'AUTHENTIFICATION</h1>
 
 	<a href="Login.jsp">Retour à l'écran de connexion</a>

@@ -71,7 +71,6 @@ public class DaoClient extends DaoJDBC implements IDao {
 
 				resultClient = new Client(rClientIdClient, rClientNom, rClientPrenom, rClientAdresse, rClientCodePostal,
 						rClientVille, rClientTelephone, rClientConseiller);
-
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {

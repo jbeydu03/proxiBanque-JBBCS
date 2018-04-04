@@ -39,6 +39,7 @@ public class SelectAllClients extends HttpServlet {
 		request.setAttribute("listeclients", opeconseiller.lireAllClients());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/ListeClients.jsp");
 		dispatcher.forward(request, response);
+		System.out.println(opeconseiller.lireAllClients());
 	}
 
 	/**

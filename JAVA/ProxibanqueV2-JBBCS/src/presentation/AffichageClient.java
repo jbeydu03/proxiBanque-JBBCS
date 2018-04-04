@@ -36,8 +36,10 @@ public class AffichageClient extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int idClient = Integer.parseInt(request.getParameter("idclient"));
+		System.out.println(idClient);
 
 		request.setAttribute("client", opeconseiller.lireClient(idClient));
+		System.out.println(opeconseiller.lireClient(idClient));
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/AffichageClient.jsp");
 		dispatcher.forward(request, response);
