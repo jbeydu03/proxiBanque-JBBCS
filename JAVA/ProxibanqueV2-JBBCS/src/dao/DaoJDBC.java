@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * class traitant de la connexion à la BDD MySql
+ * @author Clothide SZYMEZAK et JB BLANC class traitant de la connexion à la BDD
+ *         MySql
  *
  */
 public class DaoJDBC {
@@ -47,4 +47,3 @@ public class DaoJDBC {
 	}
 
 }
-

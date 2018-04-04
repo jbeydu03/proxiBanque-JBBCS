@@ -1,8 +1,8 @@
 package domaine;
 
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * Classe CompteCourant, hérite de la classe compte
+ * @author Clothide SZYMEZAK et JB BLANC Classe CompteCourant, hérite de la
+ *         classe compte
  */
 public class CompteCourant extends Compte {
 

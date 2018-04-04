@@ -5,8 +5,7 @@ import java.util.List;
 import domaine.Conseiller;
 
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * Opération du CRUD sur les conseillers
+ * @author Clothide SZYMEZAK et JB BLANC Opération du CRUD sur les conseillers
  */
 public interface IDaoConseiller {
 

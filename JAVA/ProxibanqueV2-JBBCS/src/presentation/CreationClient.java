@@ -17,8 +17,8 @@ import service.OperationConseiller;
 /**
  * Servlet implementation class CreationClient
  * 
- * @author Clothide SZYMEZAK et JB BLANC
- * Utilisation en POST pour la création un utilisateur
+ * @author Clothide SZYMEZAK et JB BLANC Utilisation en POST pour la création un
+ *         utilisateur
  */
 @WebServlet("/CreationClient")
 public class CreationClient extends HttpServlet {

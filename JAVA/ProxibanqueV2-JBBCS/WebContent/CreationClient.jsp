@@ -16,10 +16,10 @@
 			<input type="text" name="nom" placeholder="Nom" required><br />
 			<input type="text" name="prenom" placeholder="Prénom" required><br />
 			<input type="text" name="adresse" placeholder="Adresse" required><br />
-			<input type="text" name="codePostal" placeholder="Code Postal"
-				required><br /> <input type="text" name="ville"
-				placeholder="Ville" required><br /> <input type="text"
-				name="telephone" placeholder="Téléphone" required><br />
+			<input type="number" max="99999" min="0" name="codePostal"
+				placeholder="Code Postal" required><br /> <input
+				type="text" name="ville" placeholder="Ville" required><br />
+			<input type="text" name="telephone" placeholder="Téléphone" required><br />
 			<p />
 			<input type="submit" value="Créer"> <input type="reset"
 				value="Effacer"> <a href="Accueil.jsp"><input

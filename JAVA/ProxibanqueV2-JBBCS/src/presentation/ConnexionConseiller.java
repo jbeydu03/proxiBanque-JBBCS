@@ -17,8 +17,8 @@ import service.OperationConseiller;
 /**
  * Servlet implementation class ConnexionConseiller
  * 
- * @author Clothide SZYMEZAK et JB BLANC
- * Utilisation en POST pour le traitement de la connexion du conseiller
+ * @author Clothide SZYMEZAK et JB BLANC Utilisation en POST pour le traitement
+ *         de la connexion du conseiller
  */
 @WebServlet("/ConnexionConseiller")
 public class ConnexionConseiller extends HttpServlet {
@@ -60,10 +60,10 @@ public class ConnexionConseiller extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");
 		} else if (conseillerBDD.getLogin().equals(conseillerPage.getLogin())
 				&& conseillerBDD.getPwd().equals(conseillerPage.getPwd())) {
-			
+
 			HttpSession session = request.getSession(false);
 			session.setAttribute("conseiller", conseillerBDD);
-			
+
 			dispatcher = request.getRequestDispatcher("Accueil.jsp");
 		} else {
 			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");

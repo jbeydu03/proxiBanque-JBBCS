@@ -1,7 +1,8 @@
 package domaine;
+
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * classe Client factorisant héritant de la classe personne
+ * @author Clothide SZYMEZAK et JB BLANC classe Client factorisant héritant de
+ *         la classe personne
  */
 public class Client extends Personne {
 

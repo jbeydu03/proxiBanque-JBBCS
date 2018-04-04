@@ -1,7 +1,7 @@
 package domaine;
+
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * classe Agence pour créer des agences 
+ * @author Clothide SZYMEZAK et JB BLANC classe Agence pour créer des agences
  */
 public class Agence {
 

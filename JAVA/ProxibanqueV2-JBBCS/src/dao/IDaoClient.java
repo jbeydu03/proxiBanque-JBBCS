@@ -5,9 +5,9 @@ import java.util.List;
 import domaine.Client;
 
 /**
-/**
- * @author Clothide SZYMEZAK et JB BLANC
- * Opération du CRUD sur les clients
+ * /**
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC Opération du CRUD sur les clients
  */
 
 public interface IDaoClient {
@@ -21,7 +21,7 @@ public interface IDaoClient {
 	public void supprimerClient(Client client);
 
 	public List<Client> lireAllClients();
-	
+
 	public List<Client> lireClientsParConseiller(int idConseiller);
 
 }

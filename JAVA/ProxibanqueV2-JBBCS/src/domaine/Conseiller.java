@@ -3,8 +3,8 @@ package domaine;
 import java.util.List;
 
 /**
- * @author Clothide SZYMEZAK et JB BLANC
- * Classe conseiller, hérite de la classe personne
+ * @author Clothide SZYMEZAK et JB BLANC Classe conseiller, hérite de la classe
+ *         personne
  *
  */
 public class Conseiller extends Personne {
@@ -15,10 +15,8 @@ public class Conseiller extends Personne {
 	private String pwd;
 	private Agence agence;
 
+	// Constructeur
 
-	 //Constructeur
-
-	
 	public Conseiller(int idConseiller, String nom, String prenom, List<Client> listeClients) {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
@@ -30,23 +28,21 @@ public class Conseiller extends Personne {
 		this.login = login;
 		this.pwd = pwd;
 	}
-	
+
 	public Conseiller(int idConseiller, String nom, String prenom) {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
 	}
-	
+
 	public Conseiller(int idConseiller, String nom, String prenom, String login, String pwd) {
 		super(nom, prenom);
 		this.idConseiller = idConseiller;
 		this.login = login;
 		this.pwd = pwd;
 	}
-	
 
-	 //getters & setters
-	
-	
+	// getters & setters
+
 	public Agence getAgence() {
 		return agence;
 	}
@@ -54,7 +50,6 @@ public class Conseiller extends Personne {
 	public void setAgence(Agence agence) {
 		this.agence = agence;
 	}
-
 
 	public int getIdConseiller() {
 		return idConseiller;

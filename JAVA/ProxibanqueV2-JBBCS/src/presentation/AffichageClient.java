@@ -15,8 +15,8 @@ import service.OperationConseiller;
 /**
  * Servlet implementation class AffichageClient
  * 
- * @author Clothide SZYMEZAK et JB BLANC
- * Utilisation en GET pour afficher les données d'un client et ses comptes associés.
+ * @author Clothide SZYMEZAK et JB BLANC Utilisation en GET pour afficher les
+ *         données d'un client et ses comptes associés.
  */
 @WebServlet("/AffichageClient")
 public class AffichageClient extends HttpServlet {

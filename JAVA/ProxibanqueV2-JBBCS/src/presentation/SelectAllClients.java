@@ -17,8 +17,8 @@ import service.OperationConseiller;
 /**
  * Servlet implementation class SelectAllClients
  * 
- * @author Clothide SZYMEZAK et JB BLANC
- * Utilisation en GET pour afficher tous les clients d'un conseiller
+ * @author Clothide SZYMEZAK et JB BLANC Utilisation en GET pour afficher tous
+ *         les clients d'un conseiller
  * 
  */
 @WebServlet("/SelectAllClients")
