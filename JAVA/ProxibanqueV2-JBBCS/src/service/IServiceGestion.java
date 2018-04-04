@@ -15,4 +15,6 @@ public interface IServiceGestion {
 	public void supprimerClient(Client client);
 
 	public List<Client> lireAllClients();
+	
+	public List<Client> lireAllClientsParConseiller(int idConseiller);
 }

@@ -176,4 +176,46 @@ public class DaoClient extends DaoJDBC implements IDaoClient {
 
 	}
 
+	@Override
+	public List<Client> lireClientsParConseiller(int idConseiller) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Client> listResultClientparConseiller = new ArrayList<>();
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM client where idconseiller";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			
+			pstmt.setInt(1, idConseiller);
+			pstmt.execute();
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rClientIdClient = rs.getInt("idclient");
+				String rClientNom = rs.getString("nom");
+				String rClientPrenom = rs.getString("prenom");
+				String rClientAdresse = rs.getString("adresse");
+				int rClientCodePostal = rs.getInt("codepostal");
+				String rClientVille = rs.getString("ville");
+				String rClientTelephone = rs.getString("telephone");
+				
+
+				Client resultClient = new Client(rClientIdClient, rClientNom, rClientPrenom, rClientAdresse,
+						rClientCodePostal, rClientVille, rClientTelephone);
+				listResultClientparConseiller.add(resultClient);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return listResultClientparConseiller;
+
+	}
+
 }
