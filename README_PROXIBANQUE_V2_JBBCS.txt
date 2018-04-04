@@ -89,5 +89,5 @@ LANCEMENT DE L'APPLICATION
 
 
 4. Disponibilité du projet sur GitHub
-
 Le projet est disponible en ligne sur le lien suivant : https://github.com/jbeydu03/proxiBanque-JBBCS
+Pour cloner le dossier : git@github.com:jbeydu03/proxiBanque-JBBCS.git
