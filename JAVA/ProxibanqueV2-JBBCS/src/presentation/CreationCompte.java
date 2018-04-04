@@ -1,11 +1,20 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import domaine.Client;
+import domaine.CompteCourant;
+import domaine.CompteEpargne;
+import service.IServiceGestion;
+import service.OperationConseiller;
 
 /**
  * Servlet implementation class CreationCompte
@@ -13,29 +22,64 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/CreationCompte")
 public class CreationCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CreationCompte() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	IServiceGestion opeconseiller = new OperationConseiller();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CreationCompte() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		if (request.getParameter("compteC") != null) {
+
+			double solde = Double.parseDouble(request.getParameter("soldecourant"));
+			String dateOuverture = new Date().toString();
+			double decouvertAutorise = Double.parseDouble(request.getParameter("decouvert"));
+			String carteVisa = request.getParameter("cartevisa");
+			Client client = new Client(3, "lala", "nom", "adresse", 45000, "ville", "telephone");
+			//int idClient = Integer.parseInt("idclient");
+			System.out.println(client.getIdClient());
+			CompteCourant courant = new CompteCourant(solde, dateOuverture, decouvertAutorise, carteVisa);
+			opeconseiller.ajouterCompteCourant(courant, client.getIdClient());
+		}
+		if (request.getParameter("compteE") != null) {
+
+			double solde = Double.parseDouble(request.getParameter("soldeepargne"));
+			String dateOuverture = new Date().toString();
+			double tauxRemuneration = Double.parseDouble(request.getParameter("tauxremuneration"));
+			Client client = new Client(3, "lala", "nom", "adresse", 45000, "ville", "telephone");
+			
+			
+			//int idClient = Integer.parseInt("idclient");
+			System.out.println(client.getIdClient());
+			CompteEpargne epargne = new CompteEpargne(solde,dateOuverture,tauxRemuneration);
+		
+			
+			opeconseiller.ajouterCompteEpargne(epargne, client.getIdClient());
+	
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("SelectAllClients");
+		dispatcher.forward(request, response);
 	}
 
 }

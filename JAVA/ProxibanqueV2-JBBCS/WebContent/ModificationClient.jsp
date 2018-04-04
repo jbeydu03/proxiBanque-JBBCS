@@ -14,7 +14,8 @@
 	<form action="ModificationClient" method="post">
 		<fieldset>
 			<legend>Modification Client</legend>
-			<input type="text" name="nom" value="${client.nom}"><br /> <input
+			<input type="hidden" name="idclient" value="${client.idClient}" /> <input
+				type="text" name="nom" value="${client.nom}"><br /> <input
 				type="text" name="prenom" value="${client.prenom}"><br /> <input
 				type="text" name="adresse" value="${client.adresse}"><br />
 			<input type="text" name="codePostal" value="${client.codePostal}"><br />

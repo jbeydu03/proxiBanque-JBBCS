@@ -5,6 +5,8 @@ import java.util.List;
 import dao.Dao;
 import domaine.Client;
 import domaine.Compte;
+import domaine.CompteCourant;
+import domaine.CompteEpargne;
 import domaine.Conseiller;
 
 public class OperationConseiller implements IServiceGestion, IOperationBancaire, IConnexion {
@@ -32,7 +34,7 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire,
 	@Override
 	public Client lireClient(int idClient) {
 		Dao dLireClient = new Dao();
-		Client sClient = dLireClient.lireClient(1);
+		Client sClient = dLireClient.lireClient(idClient);
 		return sClient;
 	}
 
@@ -68,6 +70,20 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire,
 		Dao dLireAllClientsParConseiller = new Dao();
 		List<Client> sLireAllClientsParConseiller = dLireAllClientsParConseiller.lireClientsParConseiller(idConseiller);
 		return sLireAllClientsParConseiller;
+	}
+
+	@Override
+	public void ajouterCompteCourant(CompteCourant courant, int idClient) {
+		Dao dCreerCompteCourant = new Dao();
+		dCreerCompteCourant.creerCompteCourant(courant, idClient);
+
+	}
+
+	@Override
+	public void ajouterCompteEpargne(CompteEpargne epargne, int idClient) {
+		Dao dCreerCompteEpargne = new Dao();
+		dCreerCompteEpargne.creerCompteEpargne(epargne, idClient);
+		
 	}
 
 }

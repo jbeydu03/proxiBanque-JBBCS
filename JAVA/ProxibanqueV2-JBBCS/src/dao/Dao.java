@@ -104,7 +104,7 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 		ResultSet rs = null;
 
 		try {
-			String inserBdd = "update client set nom=?, prenom=?,adresse=?,codepostal=?,ville=?,telephone=? where idClient = ?";
+			String inserBdd = "update client set nom=?, prenom=?,adresse=?,codepostal=?,ville=?,telephone=? where idclient = ?";
 			cnx = seConnecter();
 			pstmt = cnx.prepareStatement(inserBdd);
 			pstmt.setString(1, client.getNom());
@@ -278,22 +278,21 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 	// partie Compte
 
 	@Override
-	public void creerCompteCourant(CompteCourant compteCourant) {
+	public void creerCompteCourant(CompteCourant compteCourant, int idClient) {
 
 		Connection cnx = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		try {
-			String inserBdd = "insert into comptecourant (numcompte, solde,dateouverture,decouvertautorise,cartevisa,idclient,) Values(?,?,?,?,?,?)";
+			String inserBdd = "insert into comptecourant (numcompte, solde,dateouverture,decouvertautorise,cartevisa,idclient) Values(?,?,NOW(),?,?,?)";
 			cnx = seConnecter();
 			pstmt = cnx.prepareStatement(inserBdd);
 			pstmt.setInt(1, compteCourant.getNumCompte());
 			pstmt.setDouble(2, compteCourant.getSolde());
-			pstmt.setString(3, compteCourant.getDateOuverture());
-			pstmt.setDouble(4, compteCourant.getDecouvertAutorise());
-			pstmt.setString(5, compteCourant.getCarteVisa());
-			pstmt.setInt(6, compteCourant.getClient().getIdClient());
+			pstmt.setDouble(3, compteCourant.getDecouvertAutorise());
+			pstmt.setString(4, compteCourant.getCarteVisa());
+			pstmt.setInt(5, idClient);
 
 			pstmt.execute();
 
@@ -352,15 +351,14 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 
 		try {
 			cnx = seConnecter();
-			String updateBdd="update comptecourant set numcompte=?, solde=?,dateouverture=?,decouvertautorise=?,cartevisa=?,idclient=? where numcompte = ?";
+			String updateBdd = "update comptecourant set numcompte=?, solde=?,decouvertautorise=?,cartevisa=?,idclient=? where numcompte = ?";
 			cnx = seConnecter();
 			pstmt = cnx.prepareStatement(updateBdd);
 			pstmt.setInt(1, compteCourant.getNumCompte());
 			pstmt.setDouble(2, compteCourant.getSolde());
-			pstmt.setString(3, compteCourant.getDateOuverture());
-			pstmt.setDouble(4, compteCourant.getDecouvertAutorise());
-			pstmt.setString(5, compteCourant.getCarteVisa());
-			pstmt.setInt(6, compteCourant.getClient().getIdClient());
+			pstmt.setDouble(3, compteCourant.getDecouvertAutorise());
+			pstmt.setString(4, compteCourant.getCarteVisa());
+			pstmt.setInt(5, compteCourant.getClient().getIdClient());
 
 			pstmt.execute();
 
@@ -397,8 +395,28 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 	}
 
 	@Override
-	public void creerCompteEpargne(CompteEpargne compteEpargne) {
-		// TODO Auto-generated method stub
+	public void creerCompteEpargne(CompteEpargne compteEpargne, int idclient) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			String inserBdd = "insert into compteepargne (numcompte, solde,dateouverture,tauxremuneration,idclient) Values(?,?,NOW(),?,?)";
+			cnx = seConnecter();
+			pstmt = cnx.prepareStatement(inserBdd);
+			pstmt.setInt(1, compteEpargne.getNumCompte());
+			pstmt.setDouble(2, compteEpargne.getSolde());
+			pstmt.setDouble(3, compteEpargne.getTauxRemuneration());
+			pstmt.setInt(4, idclient);
+
+			pstmt.execute();
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
 
 	}
 
@@ -460,6 +478,45 @@ public class Dao extends DaoJDBC implements IDaoClient, IDaoConseiller, IDaoComp
 		}
 
 		return resultConseiller;
+	}
+
+	@Override
+	public List<Client> lireClientsParConseiller(int idConseiller) {
+		Connection cnx = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Client> listResultClient = new ArrayList<>();
+
+		try {
+			cnx = seConnecter();
+			String rechercheBdd = "SELECT * FROM client where idconseiller=?";
+			pstmt = cnx.prepareStatement(rechercheBdd);
+			pstmt.setInt(1, idConseiller);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int rClientIdClient = rs.getInt("idclient");
+				String rClientNom = rs.getString("nom");
+				String rClientPrenom = rs.getString("prenom");
+				String rClientAdresse = rs.getString("adresse");
+				int rClientCodePostal = rs.getInt("codepostal");
+				String rClientVille = rs.getString("ville");
+				String rClientTelephone = rs.getString("telephone");
+				// TODO Modifier l'initialisation du conseiller
+
+				Client resultClient = new Client(rClientIdClient, rClientNom, rClientPrenom, rClientAdresse,
+						rClientCodePostal, rClientVille, rClientTelephone);
+				listResultClient.add(resultClient);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			seDeconnecter(cnx, pstmt, rs);
+		}
+
+		return listResultClient;
+
 	}
 
 }

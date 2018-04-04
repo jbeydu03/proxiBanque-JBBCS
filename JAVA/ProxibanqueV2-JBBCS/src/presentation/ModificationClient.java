@@ -46,6 +46,7 @@ public class ModificationClient extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int idClient = Integer.parseInt(request.getParameter("idclient"));
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String adresse = request.getParameter("adresse");
@@ -53,9 +54,9 @@ public class ModificationClient extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String telephone = request.getParameter("telephone");
 
-		Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone);
+		Client client = new Client(idClient, nom, prenom, adresse, codePostal, ville, telephone);
 
-		request.setAttribute("client", client);
+		// request.setAttribute("client", client);
 		opeconseiller.modifierClient(client);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("SelectAllClients");

@@ -8,17 +8,20 @@
 </head>
 <body>
 	<jsp:include page="Header.jsp"></jsp:include>
+	<br />
+	<br />
 	<fieldset>
 		<legend>Fiche Client</legend>
-		Nom : ${client.nom}<br /> Prénom : ${client.prenom}<br /> Adresse :
-		${client.adresse}<br /> Code Postal : ${client.codePostal}<br />
-		Ville : ${client.ville}<br /> Téléphone : ${client.telephone}<br />
+		ID : ${client.idClient}<br />Nom : ${client.nom}<br /> Prénom :
+		${client.prenom}<br /> Adresse : ${client.adresse}<br /> Code Postal
+		: ${client.codePostal}<br /> Ville : ${client.ville}<br /> Téléphone
+		: ${client.telephone}<br />
 	</fieldset>
 	<form action="CreationCompte" method="post">
 		<fieldset>
 			<legend>Création Compte</legend>
-
-			<input type="checkbox" name="compte" value="courant">Compte
+			<input type="hidden" name="idclient" value="${client.idClient}">
+			<input type="checkbox" name="compteC" value="courant">Compte
 			courant<br />Quel montant voulez-vous mettre sur le compte ? <input
 				type="text" name="soldecourant"> €<br />Découvert autorisé
 			: <input type="text" name="decouvert" value="1000"> €
@@ -29,7 +32,7 @@
 				Visa Premier<br />
 			</div>
 			<input type="radio" name="cartevisa" value="aucune">Non<br />
-			<input type="checkbox" name="compte" value="epargne">Compte
+			<input type="checkbox" name="compteE" value="epargne">Compte
 			épargne<br /> Quel montant voulez-vous mettre sur le compte ? <input
 				type="text" name="soldeepargne"> €<br /> Taux rémunération
 			: <input type="text" name="tauxremuneration" value="3"> %<br />

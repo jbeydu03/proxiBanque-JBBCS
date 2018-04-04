@@ -7,23 +7,34 @@ public abstract class Compte {
 	private String dateOuverture;
 	private Client client;
 
-	//Constructeur
-	
+	// Constructeur
+
 	public Compte(int numCompte, double solde, String dateOuverture, Client client) {
 		this.numCompte = numCompte;
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
 		this.client = client;
 	}
-	
-	public Compte(int numCompte, double solde, String dateOuverture ) {
+
+	public Compte(double solde, String dateOuverture) {
+		this.solde = solde;
+		this.dateOuverture = dateOuverture;
+	}
+
+	public Compte(double solde, String dateOuverture, Client client) {
+		this.solde = solde;
+		this.dateOuverture = dateOuverture;
+		this.client = client;
+	}
+
+	public Compte(int numCompte, double solde, String dateOuverture) {
 		this.numCompte = numCompte;
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
-	
+
 	}
-	
-	//getters et Setters
+
+	// getters et Setters
 
 	public Client getClient() {
 		return client;

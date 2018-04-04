@@ -5,14 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Erreur authentification</title>
+
+<link rel="stylesheet" href="StyleLog.css" />
+
 </head>
 <body>
 
 	<img src="Logo.png" />
+	<div class="authentification">
+		<h1>ECHEC D'AUTHENTIFICATION</h1>
 
-	<h1>ECHEC D'AUTHENTIFICATION</h1>
-
-	<a href="Login.jsp">Retour à l'écran de connexion</a>
-
+		<a href="Login.jsp">Retour à l'écran de connexion</a>
+	</div>
 </body>
 </html>

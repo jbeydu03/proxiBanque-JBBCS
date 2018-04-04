@@ -57,8 +57,10 @@ public class ConnexionConseiller extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");
 		} else if (conseillerBDD.getLogin().equals(conseillerPage.getLogin())
 				&& conseillerBDD.getPwd().equals(conseillerPage.getPwd())) {
+			
 			HttpSession session = request.getSession(false);
 			session.setAttribute("conseiller", conseillerBDD);
+			
 			dispatcher = request.getRequestDispatcher("Accueil.jsp");
 		} else {
 			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");

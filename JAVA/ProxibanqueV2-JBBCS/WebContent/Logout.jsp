@@ -5,13 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Logout</title>
+
+<link rel="stylesheet" href="StyleLog.css" />
+
 </head>
 <body>
 
-<img src="Logo.png"/>
+	<img src="Logo.png" />
 
-	<h1>Vous êtes déconnecté</h1>
+	<div class="deconnexion">
+		<h1>Vous êtes déconnecté</h1>
 
-	<a href="Login.jsp">Retour à l'écran de connexion</a>
+		<a href="Login.jsp">Retour à l'écran de connexion</a>
+	</div>
 </body>
 </html>
