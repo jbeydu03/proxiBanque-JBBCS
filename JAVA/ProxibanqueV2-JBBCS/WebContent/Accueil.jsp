@@ -24,12 +24,12 @@
 	<jsp:include page="Header.jsp"></jsp:include>
 	<br />
 	<br />
-	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom},
-		${conseiller.login} !!</h1>
+	<h1>Bonjour ${conseiller.nom}, ${conseiller.prenom} !!</h1>
 	<p>
-		Nous sommes le <font color="red"><%=new Date()%></font><br /> <a
-			href="CreationClient.jsp">Créer un nouveau client</a> <br /> <a
-			href="SelectAllClients">Gérer vos clients</a>
+		Nous sommes le
+		<%=new Date()%><br /> <a href="CreationClient.jsp">Créer un
+			nouveau client</a> <br /> <a href="SelectAllClients">Gérer vos
+			clients</a>
 
 		<jsp:include page="Footer.jsp"></jsp:include>
 

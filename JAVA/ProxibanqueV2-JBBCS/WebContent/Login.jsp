@@ -14,13 +14,21 @@
 	<img class="image" src="Logo.png" />
 
 	<form action="ConnexionConseiller" method="post">
-
 		<fieldset>
 			<legend>Connexion</legend>
-			<input type="text" name="login" placeholder="Login"><br /> <input
-				type="password" name="pwd" placeholder="Password"><br /> <input
-				type="submit" value="Connexion"> <input type="reset"
-				value="Effacer">
+			<p />
+			<div class="connexion">
+				<input class="case1" type="text" name="login" placeholder="  Login" />
+				<p />
+				<input class="case2" type="password" name="pwd"
+					placeholder="  Password">
+			</div>
+
+			<div class="button">
+				<input class="case3" type="submit" value="Connexion">
+				<p />
+				<input class="case4" type="reset" value="Effacer" />
+			</div>
 		</fieldset>
 	</form>
 </body>
