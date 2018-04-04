@@ -1,5 +1,9 @@
 package domaine;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Classe CompteEpargne, hérite de la classe compte
+ */
 public class CompteEpargne extends Compte {
 
 	private double tauxRemuneration;

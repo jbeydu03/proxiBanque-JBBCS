@@ -6,6 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * class traitant de la connexion à la BDD MySql
+ *
+ */
 public class DaoJDBC {
 	private static String url = "jdbc:mysql://localhost/proxibanquev2-JBBCS";
 	private static String login = "root";

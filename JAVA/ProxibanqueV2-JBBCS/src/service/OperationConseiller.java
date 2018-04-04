@@ -9,6 +9,12 @@ import domaine.CompteCourant;
 import domaine.CompteEpargne;
 import domaine.Conseiller;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Methodes disponibles pour un conseiller
+ * Implemente les interfaces IServiceGestion, IOperationBancaire, IConnexion
+ */
+
 public class OperationConseiller implements IServiceGestion, IOperationBancaire, IConnexion {
 
 	@Override

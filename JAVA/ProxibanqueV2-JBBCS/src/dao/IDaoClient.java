@@ -4,6 +4,12 @@ import java.util.List;
 
 import domaine.Client;
 
+/**
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Opération du CRUD sur les clients
+ */
+
 public interface IDaoClient {
 
 	public void creerClient(Client client);

@@ -18,6 +18,11 @@ import service.OperationConseiller;
 
 /**
  * Servlet implementation class CreationCompte
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en POST pour associer la création de compte (courant et/ou epargne) à un utilisateur
+ * 
+ * 
  */
 @WebServlet("/CreationCompte")
 public class CreationCompte extends HttpServlet {

@@ -16,6 +16,9 @@ import service.OperationConseiller;
 
 /**
  * Servlet implementation class ConnexionConseiller
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en POST pour le traitement de la connexion du conseiller
  */
 @WebServlet("/ConnexionConseiller")
 public class ConnexionConseiller extends HttpServlet {
