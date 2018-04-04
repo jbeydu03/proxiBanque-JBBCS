@@ -5,10 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
+
+<link rel="stylesheet" href="StyleLog.css" />
+
 </head>
 <body>
 
-<img src="Logo.png"/>
+	<img class="image" src="Logo.png" />
 
 	<form action="ConnexionConseiller" method="post">
 

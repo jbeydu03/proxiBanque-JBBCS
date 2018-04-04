@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bas de page</title>
 
-<link rel="stylesheet" href="Style.css" />
+<link rel="stylesheet" href="StylePage.css" />
 
 </head>
 <body>

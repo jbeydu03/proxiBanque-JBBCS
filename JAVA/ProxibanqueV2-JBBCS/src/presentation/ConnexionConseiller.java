@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domaine.Conseiller;
+import service.IConnexion;
+import service.OperationConseiller;
 
 /**
  * Servlet implementation class ConnexionConseiller
@@ -18,6 +20,7 @@ import domaine.Conseiller;
 @WebServlet("/ConnexionConseiller")
 public class ConnexionConseiller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	IConnexion opeconseiller = new OperationConseiller();
 
 	/**
 	 * Default constructor.
@@ -46,12 +49,21 @@ public class ConnexionConseiller extends HttpServlet {
 		String login = request.getParameter("login");
 		String pwd = request.getParameter("pwd");
 
-		Conseiller conseiller = new Conseiller(login, pwd);
+		Conseiller conseillerPage = new Conseiller(login, pwd);
+		Conseiller conseillerBDD = opeconseiller.connexionConseiller(login);
 
-		HttpSession session = request.getSession(false);
-		session.setAttribute("conseiller", conseiller);
+		RequestDispatcher dispatcher;
+		if (login.isEmpty() || pwd.isEmpty() || conseillerBDD == null) {
+			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");
+		} else if (conseillerBDD.getLogin().equals(conseillerPage.getLogin())
+				&& conseillerBDD.getPwd().equals(conseillerPage.getPwd())) {
+			HttpSession session = request.getSession(false);
+			session.setAttribute("conseiller", conseillerBDD);
+			dispatcher = request.getRequestDispatcher("Accueil.jsp");
+		} else {
+			dispatcher = request.getRequestDispatcher("ErreurAuthentification.jsp");
+		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Accueil.jsp");
 		dispatcher.forward(request, response);
 	}
 
