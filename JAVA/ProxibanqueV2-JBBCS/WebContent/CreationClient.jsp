@@ -7,6 +7,9 @@
 <title>Création client</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp"></jsp:include>
+	<br />
+	<br />
 	<form action="CreationClient" method="post">
 		<fieldset>
 			<legend>Création Client</legend>
@@ -18,8 +21,10 @@
 				type="text" name="telephone" placeholder="Téléphone"><br />
 			<p />
 			<input type="submit" value="Créer"> <input type="reset"
-				value="Effacer">
+				value="Effacer"> <a href="Accueil.jsp"><input
+				type="button" value="Annuler"></a>
 		</fieldset>
 	</form>
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

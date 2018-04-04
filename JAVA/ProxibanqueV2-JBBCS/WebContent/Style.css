@@ -1,0 +1,49 @@
+html {
+	background-color: #fff;
+}
+
+body, .copyright {
+	margin: 0px auto;
+	width: 1300px;
+	background-color: #008000;
+	text-align: center;
+	height: 235px;
+	text-align: center;
+}
+
+body {
+	margin-top: 20px; border-top-left-radius : 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.copyright {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.logo {
+	border-radius: 10px;
+	width: 500px;
+	float: left;
+	margin: 25px 625px 0px 25px;
+}
+
+.deconnexion {
+	padding-top: 190px;
+}
+
+.boutondeconnexion {
+	border-radius: 10px;
+}
+
+.boutondeconnexion:hover {
+	border-radius: 10px;
+	background-color: #bb0000;
+	color: #FFF;
+}
+
+h3 {
+	padding: 100px;
+	color: #FFF;
+}

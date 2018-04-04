@@ -1,6 +1,5 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dao.Dao;
@@ -24,10 +23,10 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire,
 
 	@Override
 	public void creerClient(Client client) {
-	
-			Dao dCreerClients = new Dao();
-			dCreerClients.creerClient(client);
-		
+
+		Dao dCreerClients = new Dao();
+		dCreerClients.creerClient(client);
+
 	}
 
 	@Override

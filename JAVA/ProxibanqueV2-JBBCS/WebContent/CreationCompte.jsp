@@ -7,6 +7,7 @@
 <title>Création Compte</title>
 </head>
 <body>
+	<jsp:include page="Header.jsp"></jsp:include>
 	<fieldset>
 		<legend>Fiche Client</legend>
 		Nom : ${client.nom}<br /> Prénom : ${client.prenom}<br /> Adresse :
@@ -37,5 +38,7 @@
 	</form>
 
 	<a href="Accueil.jsp">Retour à l'accueil</a>
+
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>

@@ -54,12 +54,11 @@ public class ModificationClient extends HttpServlet {
 		String telephone = request.getParameter("telephone");
 
 		Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone);
-		
+
 		request.setAttribute("client", client);
 		opeconseiller.modifierClient(client);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Accueil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("SelectAllClients");
 		dispatcher.forward(request, response);
 	}
-
 }

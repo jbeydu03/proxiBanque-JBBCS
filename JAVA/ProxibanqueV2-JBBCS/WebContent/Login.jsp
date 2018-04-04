@@ -7,6 +7,9 @@
 <title>Login</title>
 </head>
 <body>
+
+<img src="Logo.png"/>
+
 	<form action="ConnexionConseiller" method="post">
 
 		<fieldset>

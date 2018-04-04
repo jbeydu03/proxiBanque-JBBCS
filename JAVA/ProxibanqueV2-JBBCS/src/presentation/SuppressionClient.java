@@ -36,7 +36,13 @@ public class SuppressionClient extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int idClient = Integer.parseInt(request.getParameter("idclient"));
+
+		Client client = new Client(idClient);
+		opeconseiller.supprimerClient(client);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("SelectAllClients");
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -46,21 +52,7 @@ public class SuppressionClient extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		int idClient = Integer.parseInt(request.getParameter("idclient"));
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String adresse = request.getParameter("adresse");
-		int codePostal = Integer.parseInt(request.getParameter("codePostal"));
-		String ville = request.getParameter("ville");
-		String telephone = request.getParameter("telephone");
-
-		Client client = new Client(idClient, nom, prenom, adresse, codePostal, ville, telephone);
-
-		opeconseiller.supprimerClient(client);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Accueil.jsp");
-		dispatcher.forward(request, response);
-
+		doGet(request, response);
 	}
 
 }

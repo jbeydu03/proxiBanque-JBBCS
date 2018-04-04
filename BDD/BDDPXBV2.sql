@@ -28,7 +28,7 @@ CREATE TABLE Client(
         prenom       Varchar (20) NOT NULL ,
         adresse      Varchar (40) NOT NULL ,
         codepostal   Int NOT NULL ,
-		ville		 Varchar (20) NOT NULL ,
+		ville 		 Varchar (20) NOT NULL ,
         telephone    Varchar (10) NOT NULL ,
         idconseiller Int NOT NULL ,
         PRIMARY KEY (idclient )
