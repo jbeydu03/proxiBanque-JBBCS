@@ -10,7 +10,7 @@ import java.util.List;
 import domaine.Client;
 import domaine.Conseiller;
 
-public class DaoClient extends DaoJDBC implements IDao {
+public class DaoClient extends DaoJDBC implements IDaoClient {
 
 	@Override
 	public void creerClient(Client client) {

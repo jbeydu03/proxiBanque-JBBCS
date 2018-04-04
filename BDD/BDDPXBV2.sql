@@ -42,6 +42,7 @@ CREATE TABLE Client(
 CREATE TABLE Agence(
         idagence     Varchar (5) NOT NULL ,
         datecreation Date NOT NULL ,
+		`nomagence` varchar(30) NOT NULL,
         PRIMARY KEY (idagence )
 )ENGINE=InnoDB;
 
