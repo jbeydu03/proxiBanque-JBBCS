@@ -15,5 +15,7 @@ public interface IDaoClient {
 	public void supprimerClient(Client client);
 
 	public List<Client> lireAllClients();
+	
+	public List<Client> lireClientsParConseiller(int idConseiller);
 
 }

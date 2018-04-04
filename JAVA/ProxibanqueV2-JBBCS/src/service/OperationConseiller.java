@@ -63,4 +63,11 @@ public class OperationConseiller implements IServiceGestion, IOperationBancaire,
 		return sConnexion;
 	}
 
+	@Override
+	public List<Client> lireAllClientsParConseiller(int idConseiller) {
+		Dao dLireAllClientsParConseiller = new Dao();
+		List<Client> sLireAllClientsParConseiller = dLireAllClientsParConseiller.lireClientsParConseiller(idConseiller);
+		return sLireAllClientsParConseiller;
+	}
+
 }
