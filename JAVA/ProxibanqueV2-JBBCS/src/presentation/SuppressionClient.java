@@ -14,8 +14,13 @@ import service.IServiceGestion;
 import service.OperationConseiller;
 
 /**
+ * 
  * Servlet implementation class SuppressionClient
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en GET pour supprimer un client par son id
  */
+
 @WebServlet("/SuppressionClient")
 public class SuppressionClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;

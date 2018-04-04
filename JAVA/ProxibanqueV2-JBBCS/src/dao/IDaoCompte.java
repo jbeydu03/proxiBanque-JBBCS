@@ -19,9 +19,9 @@ public interface IDaoCompte {
 
 	public CompteCourant lireCompteCourant(int numCompte);
 
-	public void modifierCompteCourant(CompteCourant CompteCourant);
+	public void modifierCompteCourant(CompteCourant compteCourant);
 
-	public void supprimerCompteCourant(CompteCourant CompteCourant);
+	public void supprimerCompteCourant(CompteCourant compteCourant);
 
 	// partie compte epargne
 

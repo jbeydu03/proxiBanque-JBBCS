@@ -6,6 +6,11 @@ import domaine.Client;
 import domaine.CompteCourant;
 import domaine.CompteEpargne;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Signature de méthodes pour les opérations du CRUD client et comptes
+ *
+ */
 public interface IServiceGestion {
 
 	public void creerClient(Client client);

@@ -52,7 +52,7 @@ CREATE TABLE Agence(
 #------------------------------------------------------------
 
 CREATE TABLE CompteEpargne(
-        numcompte        Int NOT NULL ,
+        numcompte        Int NOT NULL AUTO_INCREMENT,
         solde            Double NOT NULL ,
         dateouverture    Date NOT NULL ,
         tauxremuneration Double NOT NULL ,
@@ -66,7 +66,7 @@ CREATE TABLE CompteEpargne(
 #------------------------------------------------------------
 
 CREATE TABLE CompteCourant(
-        numcompte         Int NOT NULL ,
+        numcompte         Int NOT NULL AUTO_INCREMENT,
         solde             Double NOT NULL ,
         dateouverture     Date NOT NULL ,
         decouvertautorise Double NOT NULL ,

@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class DeconnexionConseiller
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en GET pour qu'un conseiller se déconnecte de l'application
+ * 
  */
 @WebServlet("/DeconnexionConseiller")
 public class DeconnexionConseiller extends HttpServlet {

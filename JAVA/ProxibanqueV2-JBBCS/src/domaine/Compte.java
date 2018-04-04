@@ -1,5 +1,9 @@
 package domaine;
 
+/**
+ * @author Clothide SZYMEZAK et JB BLANC
+ * classe Compte factorisant les données communes (numCompte, solde,dateOuverture, client) pour la création de comptes bancaires dans l'application
+ */
 public abstract class Compte {
 
 	private int numCompte;

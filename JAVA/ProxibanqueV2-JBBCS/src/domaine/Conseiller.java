@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * @author Clothide SZYMEZAK et JB BLANC
- * Classe conseiller
+ * Classe conseiller, hérite de la classe personne
  *
  */
 public class Conseiller extends Personne {

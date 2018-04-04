@@ -14,6 +14,9 @@ import service.OperationConseiller;
 
 /**
  * Servlet implementation class ModificationClient
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en GET pour atteindre la fiche d'un client en modification
  */
 @WebServlet("/LienModificationClient")
 public class LienModificationClient extends HttpServlet {

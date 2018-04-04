@@ -15,6 +15,10 @@ import service.OperationConseiller;
 
 /**
  * Servlet implementation class ModificationClient
+ * 
+ * @author Clothide SZYMEZAK et JB BLANC
+ * Utilisation en POST pour modifier les attributs en BDD d'un client
+ * 
  */
 @WebServlet("/ModificationClient")
 public class ModificationClient extends HttpServlet {
